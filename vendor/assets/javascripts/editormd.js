@@ -1,14 +1,10 @@
-/*
- * Editor.md
- *
- * @file        editormd.js 
- * @version     v1.5.0 
- * @description Open source online markdown editor.
- * @license     MIT License
- * @author      Pandao
- * {@link       https://github.com/pandao/editor.md}
- * @updateTime  2015-06-09
- */
+$(function() {
+        editormd("markdown", {
+            width   : "90%",
+            height  : 640,
+            syncScrolling : "single"
+        });
+});
 
 ;(function(factory) {
     "use strict";
@@ -70,16 +66,14 @@
             "h1", "h2", "h3", "h4", "h5", "h6", "|", 
             "list-ul", "list-ol", "hr", "|",
             "link", "reference-link", "image", "code", "preformatted-text", "code-block", "table", "datetime", "emoji", "html-entities", "pagebreak", "|",
-            "goto-line", "watch", "preview", "fullscreen", "clear", "search", "|",
-            "help", "info"
+            "goto-line", "watch", "preview", "fullscreen", "clear", "search", "|"
         ],
         simple : [
             "undo", "redo", "|", 
             "bold", "del", "italic", "quote", "uppercase", "lowercase", "|", 
             "h1", "h2", "h3", "h4", "h5", "h6", "|", 
             "list-ul", "list-ol", "hr", "|",
-            "watch", "preview", "fullscreen", "|",
-            "help", "info"
+            "watch", "preview", "fullscreen", "|"
         ],
         mini : [
             "undo", "redo", "|",
@@ -152,7 +146,7 @@
         uploadCallbackURL    : "",
         
         toc                  : true,           // Table of contents
-        tocm                 : false,           // Using [TOCM], auto create ToC dropdown menu
+        tocm                 : true,           // Using [TOCM], auto create ToC dropdown menu
         tocTitle             : "",             // for ToC dropdown menu btn
         tocDropdown          : false,
         tocContainer         : "",
@@ -161,8 +155,8 @@
         pageBreak            : true,           // Enable parse page break [========]
         atLink               : true,           // for @link
         emailLink            : true,           // for email address auto link
-        taskList             : false,          // Enable Github Flavored Markdown task lists
-        emoji                : false,          // :emoji: , Support Github emoji, Twitter Emoji (Twemoji);
+        taskList             : true,          // Enable Github Flavored Markdown task lists
+        emoji                : true,          // :emoji: , Support Github emoji, Twitter Emoji (Twemoji);
                                                // Support FontAwesome icon emoji :fa-xxx: > Using fontAwesome icon web fonts;
                                                // Support Editor.md logo icon emoji :editormd-logo: :editormd-logo-1x: > 1~8x;
         tex                  : false,          // TeX(LaTeX), based on KaTeX
