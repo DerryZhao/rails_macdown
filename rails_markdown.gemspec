@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'rails_markdown/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "rails_markdown"
+  spec.name          = "rails_markD"
   spec.version       = RailsMarkdown::VERSION
   spec.authors       = ["zhaoheqiang"]
   spec.email         = ["quiniton@163.com"]
