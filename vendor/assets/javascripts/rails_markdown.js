@@ -93,8 +93,8 @@ $(function() {
         appendMarkdown       : "",             // if in init textarea value not empty, append markdown to textarea
         width                : "100%",
         height               : "100%",
-        path                 : "./lib/",       // Dependents module file directory
-        pluginPath           : "",             // If this empty, default use settings.path + "../plugins/"
+        path                 : "/assets/",       // Dependents module file directory
+        pluginPath           : "/assets/",             // If this empty, default use settings.path + "../plugins/"
         delay                : 300,            // Delay parse markdown to html, Uint : ms
         autoLoadModules      : true,           // Automatic load dependent module files
         watch                : true,
@@ -375,7 +375,7 @@ $(function() {
                 }
             };
             
-            settings.pluginPath = (settings.pluginPath === "") ? settings.path + "../plugins/" : settings.pluginPath; 
+            settings.pluginPath = (settings.pluginPath === "") ? settings.path : settings.pluginPath; 
             
             this.state.watching = (settings.watch) ? true : false;
             
@@ -454,8 +454,8 @@ $(function() {
                 
                 if (settings.searchReplace && !settings.readOnly) 
                 {
-                    editormd.loadCSS(settings.path + "codemirror/addon/dialog/dialog");
-                    editormd.loadCSS(settings.path + "codemirror/addon/search/matchesonscrollbar");
+                    editormd.loadCSS(settings.path + "dialog");
+                    editormd.loadCSS(settings.path + "matchesonscrollbar");
                 }
             }
             
@@ -540,25 +540,25 @@ $(function() {
                 }
             }; 
 
-            editormd.loadCSS(loadPath + "codemirror/codemirror.min");
+            editormd.loadCSS(loadPath + "codemirror.min");
             
             if (settings.searchReplace && !settings.readOnly)
             {
-                editormd.loadCSS(loadPath + "codemirror/addon/dialog/dialog");
-                editormd.loadCSS(loadPath + "codemirror/addon/search/matchesonscrollbar");
+                editormd.loadCSS(loadPath + "dialog");
+                editormd.loadCSS(loadPath + "matchesonscrollbar");
             }
             
             if (settings.codeFold)
             {
-                editormd.loadCSS(loadPath + "codemirror/addon/fold/foldgutter");            
+                editormd.loadCSS(loadPath + "foldgutter");            
             }
             
-            editormd.loadScript(loadPath + "codemirror/codemirror.min", function() {
+            editormd.loadScript(loadPath + "codemirror.min", function() {
                 editormd.$CodeMirror = CodeMirror;
                 
-                editormd.loadScript(loadPath + "codemirror/modes.min", function() {
+                editormd.loadScript(loadPath + "modes.min", function() {
                     
-                    editormd.loadScript(loadPath + "codemirror/addons.min", function() {
+                    editormd.loadScript(loadPath + "addons.min", function() {
                         
                         _this.setCodeMirror();
                         
@@ -628,7 +628,7 @@ $(function() {
             
             if (theme !== "default")
             {
-                editormd.loadCSS(settings.path + "codemirror/theme/" + settings.editorTheme);
+                editormd.loadCSS(settings.path + settings.editorTheme);
             }
             
             this.cm.setOption("theme", theme);
@@ -681,7 +681,7 @@ $(function() {
             
             if (settings.editorTheme !== "default")
             {
-                editormd.loadCSS(settings.path + "codemirror/theme/" + settings.editorTheme);
+                editormd.loadCSS(settings.path +  settings.editorTheme);
             }
             
             var codeMirrorConfig = {
@@ -3078,11 +3078,11 @@ $(function() {
         },
 
         link : function() {
-            this.executePlugin("linkDialog", "link-dialog/link-dialog");
+            this.executePlugin("linkDialog", "link-dialog");
         },
 
         "reference-link" : function() {
-            this.executePlugin("referenceLinkDialog", "reference-link-dialog/reference-link-dialog");
+            this.executePlugin("referenceLinkDialog", "reference-link-dialog");
         },
 
         pagebreak : function() {
@@ -3099,7 +3099,7 @@ $(function() {
         },
 
         image : function() {
-            this.executePlugin("imageDialog", "image-dialog/image-dialog");
+            this.executePlugin("imageDialog", "image-dialog");
         },
         
         code : function() {
@@ -3115,15 +3115,15 @@ $(function() {
         },
 
         "code-block" : function() {
-            this.executePlugin("codeBlockDialog", "code-block-dialog/code-block-dialog");            
+            this.executePlugin("codeBlockDialog", "code-block-dialog");            
         },
 
         "preformatted-text" : function() {
-            this.executePlugin("preformattedTextDialog", "preformatted-text-dialog/preformatted-text-dialog");
+            this.executePlugin("preformattedTextDialog", "preformatted-text-dialog");
         },
         
         table : function() {
-            this.executePlugin("tableDialog", "table-dialog/table-dialog");         
+            this.executePlugin("tableDialog", "table-dialog");         
         },
         
         datetime : function() {
@@ -3137,15 +3137,15 @@ $(function() {
         },
         
         emoji : function() {
-            this.executePlugin("emojiDialog", "emoji-dialog/emoji-dialog");
+            this.executePlugin("emojiDialog", "emoji-dialog");
         },
                 
         "html-entities" : function() {
-            this.executePlugin("htmlEntitiesDialog", "html-entities-dialog/html-entities-dialog");
+            this.executePlugin("htmlEntitiesDialog", "html-entities-dialog");
         },
                 
         "goto-line" : function() {
-            this.executePlugin("gotoLineDialog", "goto-line-dialog/goto-line-dialog");
+            this.executePlugin("gotoLineDialog", "goto-line-dialog");
         },
 
         watch : function() {    
@@ -3169,7 +3169,7 @@ $(function() {
         },
 
         help : function() {
-            this.executePlugin("helpDialog", "help-dialog/help-dialog");
+            this.executePlugin("helpDialog", "help-dialog");
         },
 
         info : function() {
