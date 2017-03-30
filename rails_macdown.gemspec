@@ -5,7 +5,7 @@ require 'rails_macdown/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "rails_macdown"
-  spec.version       = RailsMarkdown::VERSION
+  spec.version       = RailsMacdown::VERSION
   spec.authors       = ["zhaoheqiang"]
   spec.email         = ["quiniton@163.com"]
 
