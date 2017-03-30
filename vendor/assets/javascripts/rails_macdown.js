@@ -1,5 +1,5 @@
 $(function() {
-        editormd("markdown", {
+        editormd("macdown", {
             width   : "90%",
             height  : 640,
             syncScrolling : "single"

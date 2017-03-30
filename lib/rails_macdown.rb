@@ -1,4 +1,4 @@
-require "rails_markdown/version"
+require "rails_macdown/version"
 
 module RailsMarkdown
   class Engine < ::Rails::Engine

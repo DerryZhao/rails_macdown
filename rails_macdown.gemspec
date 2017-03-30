@@ -1,10 +1,10 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'rails_markdown/version'
+require 'rails_macdown/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "rails_markdown_common"
+  spec.name          = "rails_macdown"
   spec.version       = RailsMarkdown::VERSION
   spec.authors       = ["zhaoheqiang"]
   spec.email         = ["quiniton@163.com"]
